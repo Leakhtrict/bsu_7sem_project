@@ -1,0 +1,8 @@
+{
+    "noteItem.addToFavorite": "Добавить в Избранное",
+    "noteItem.removeFromFavorite": "Удалить из Избранного",
+    "noteItem.editItem": "Изменить заметку",
+    "noteItem.deleteItem": "Удалить заметку",
+    "noteItem.moreOptions": "Управление заметкой",
+    "addTodo.error": "Максимальная длина - 100 символов"
+}

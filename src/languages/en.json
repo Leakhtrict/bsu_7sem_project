@@ -1,0 +1,8 @@
+{
+    "noteItem.addToFavorite": "Add to Favorite",
+    "noteItem.removeFromFavorite": "Remove from Favorite",
+    "noteItem.editItem": "Edit note",
+    "noteItem.deleteItem": "Delete note",
+    "noteItem.moreOptions": "Note options",
+    "addTodo.error": "Maximum length is 100 characters"
+}

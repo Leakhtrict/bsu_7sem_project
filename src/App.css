@@ -1,3 +1,86 @@
+#root{
+    overflow-x: hidden;
+}
+
 .App {
-  text-align: center;
+    width: 100vw;
+    min-height: 100vh;
+    text-align: center;
+    font-family: "Arial", "Helvetica", sans-serif;
+    font-size: 18px;
+    background-image: url(https://res.cloudinary.com/genis-project/image/upload/v1630238542/genis-project-background-image_ok1zew.jpg);
+}
+
+body{
+    margin: 0px;
+}
+
+.langChanger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: auto;
+}
+
+.notes-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.note {
+    height: auto;
+    max-height: 300px;
+    background-color: rgb(207, 141, 17);
+    word-break: break-all;
+    margin: 12px;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: rgba(70, 68, 68, 0.445) 0px 2px 8px 0px;
+}
+
+.note__body {
+    max-height: 240px;
+    overflow-y: auto;
+    margin: 4px 8px 14px;
+    padding-top: 4px;
+    border-top: 1px solid black;
+}
+
+.add-note-item {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 3px dotted #808080;
+    background-color: rgb(233, 229, 229);
+    margin: 12px;
+}
+
+.add-note-item:hover {
+    cursor: pointer;
+}
+
+.add-note-item-plus-icon {
+    height: 128px;
+    width: 128px;
+    background-image: url("images/plus-5-128.png");
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+    background: -webkit-linear-gradient(transparent);
+    background: linear-gradient(transparent);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(143, 142, 142);
 }
