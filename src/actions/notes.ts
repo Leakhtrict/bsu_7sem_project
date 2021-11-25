@@ -2,6 +2,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { NoteItemType } from '../types';
 
+export const getNotesFromLocalStorage = createAsyncThunk(
+    '@notes/getNotesFromLocalStorage',
+    () => localStorage.getItem("bsu_project.notes") || ''
+);
+
 export const addNote = createAsyncThunk(
     '@notes/addNote',
     (note: NoteItemType, { rejectWithValue }) => {

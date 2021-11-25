@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { IntlProvider } from 'react-intl';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import enMessages from './languages/en.json';
 import ruMessages from './languages/ru.json';
+import { getNotesFromLocalStorage } from './actions';
 import { LangChanger, NotesList } from './components';
 import { AddNewNote, ErrorPage, EditNote } from './pages';
 
@@ -15,7 +17,13 @@ const langSet = {
 }
 
 function App() {
-    const [currentLang, setCurrentLang] = useState(localStorage.getItem("app.lang") || "en");
+    const dispatch = useDispatch();
+
+    const [currentLang, setCurrentLang] = useState(localStorage.getItem("bsu_project.lang") || "en");
+
+    useEffect(() => {
+        dispatch(getNotesFromLocalStorage());
+    }, []);
 
     return (
         <div className="App">

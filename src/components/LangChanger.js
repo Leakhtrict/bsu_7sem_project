@@ -10,7 +10,7 @@ export const LangChanger = ({
             <Select
                 value={currentLang}
                 onChange={(e) => {
-                    localStorage.setItem("app.lang", e.target.value);
+                    localStorage.setItem("bsu_project.lang", e.target.value);
                     setCurrentLang(e.target.value);
                 }}
                 style={{ marginBottom: "8px" }}
