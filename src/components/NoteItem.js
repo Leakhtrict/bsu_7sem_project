@@ -1,24 +1,28 @@
-import { ButtonGroup, IconButton } from '@material-ui/core';
-import StarIcon from '@material-ui/icons/Star';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
-import CloseIcon from '@material-ui/icons/Close';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import { FormattedMessage } from 'react-intl';
-import { useDispatch } from 'react-redux';
-import { changeFavorite, deleteNote } from '../actions/notes';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import ReactMarkdown from 'react-markdown';
+import { useHistory } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
+import StarIcon from '@material-ui/icons/Star';
+import EditIcon from '@material-ui/icons/Edit';
+import CloseIcon from '@material-ui/icons/Close';
+import DeleteIcon from '@material-ui/icons/Delete';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
+import { ButtonGroup, IconButton } from '@material-ui/core';
 
-export default function NoteItem({ index, note }) {
-    const { id, title, body, isFavorite } = note;
+import { changeFavorite, deleteNote } from '../actions';
+
+export const NoteItem = ({ index, note }) => {
+    let history = useHistory();
+
+    const { uuid, title, body, isFavorite } = note;
     const [isMenuOpened, setIsMenuOpened] = useState(false);
 
     const dispatch = useDispatch();
 
     return (
-        <div key={id} className="note">
+        <div key={uuid} className="note">
             {isMenuOpened &&
                 <ButtonGroup>
                     <FormattedMessage id={isFavorite ? "noteItem.removeFromFavorite" : "noteItem.addToFavorite"}>
@@ -30,7 +34,7 @@ export default function NoteItem({ index, note }) {
                     </FormattedMessage>
                     <FormattedMessage id="noteItem.editItem">
                         {(id) =>
-                            <IconButton title={id}>
+                            <IconButton title={id} onClick={() => history.push(`/editNote/${index}`)}>
                                 <EditIcon />
                             </IconButton>
                         }

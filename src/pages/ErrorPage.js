@@ -1,6 +1,9 @@
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage } from 'react-intl';
+import { useHistory } from 'react-router-dom';
 
-export default function ErrorPage() {
+export const ErrorPage = () => {
+    let history = useHistory();
+
     return <div>
         <h2>
             <FormattedMessage id="errorPage.titleMessage" />
@@ -8,7 +11,7 @@ export default function ErrorPage() {
         <h4>
             <FormattedMessage id="errorPage.bodyMessage">
                 {(id) =>
-                    <a href="/">{id}</a>
+                    <div className="error-page" onClick={() => history.push("/")}>{id}</div>
                 }
             </FormattedMessage>
         </h4>

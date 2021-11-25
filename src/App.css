@@ -83,7 +83,7 @@ body{
     cursor: pointer;
 }
 
-.add-new-note-page {
+.add-new-note-page, .edit-note-page {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,6 +94,18 @@ body{
     height: 128px;
     width: 128px;
     background-image: url("images/plus-5-128.png");
+}
+
+.error-page {
+    color: cornflowerblue;
+    text-decoration: underline;
+    text-decoration-color: cornflowerblue;
+}
+
+.error-page:hover {
+    cursor: pointer;
+    color: mediumpurple;
+    text-decoration: none;
 }
 
 .note__body::-webkit-scrollbar-thumb {

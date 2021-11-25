@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addNote, changeFavorite, deleteNote } from '../actions/notes';
-import { NoteItemType } from '../types/NoteItem';
+
+import { NoteItemType } from '../types';
+import { addNote, changeFavorite, deleteNote, editNote } from '../actions';
 
 const defaultState: NoteItemType[] = [];
 
@@ -9,8 +10,19 @@ export const notesReducer = createSlice({
     initialState: defaultState,
     reducers: {},
     extraReducers: builder => {
-        builder.addCase(addNote.fulfilled, (state, { payload }) => [...state, payload]);
+        builder.addCase(addNote.fulfilled, (state, { payload }) => {
+            state.unshift(payload);
+
+            return state;
+        });
         builder.addCase(addNote.rejected, (state, payload) => alert(payload.error));
+        builder.addCase(editNote.fulfilled, (state, { payload: { index, note } }) => {
+            state.splice(index, 1);
+            state.unshift(note);
+
+            return state;
+        });
+        builder.addCase(editNote.rejected, (state, payload) => alert(payload.error));
         builder.addCase(changeFavorite.fulfilled, (state, { payload }) => {
             const updFavField = !state[payload].isFavorite;
             state[payload].isFavorite = updFavField;

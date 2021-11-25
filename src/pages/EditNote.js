@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import ReactMde from 'react-mde';
 import * as Showdown from 'showdown';
-import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { Button, TextField } from '@material-ui/core';
-import { generateUniqueID } from 'web-vitals/dist/modules/lib/generateUniqueID';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory, useParams } from 'react-router-dom';
 
-import { addNote } from '../actions';
+import { editNote } from '../actions';
+import { getNoteByIndex } from '../selectors';
 
 import 'react-mde/lib/styles/css/react-mde-all.css';
 
@@ -18,14 +18,19 @@ const converter = new Showdown.Converter({
     tasklists: true
 });
 
-export const AddNewNote = () => {
+export const EditNote = () => {
+    let { index } = useParams();
+    const currentNote = useSelector(getNoteByIndex(index))
+
+    const { title: noteTitle, body: noteBody } = currentNote;
+
     let history = useHistory();
     const dispatch = useDispatch();
 
-    const [title, setTitle] = useState("");
+    const [title, setTitle] = useState(noteTitle);
     const [titleError, setTitleError] = useState(false);
 
-    const [body, setBody] = useState("");
+    const [body, setBody] = useState(noteBody);
     const [bodyError, setBodyError] = useState(false);
 
     const [selectedTab, setSelectedTab] = useState("write");
@@ -53,17 +58,14 @@ export const AddNewNote = () => {
     }
 
     const submitNote = () => {
-        dispatch(addNote({
-            uuid: generateUniqueID(),
-            title,
-            body,
-            isFavorite: false
-        }));
+        if (title !== noteTitle || body !== noteBody)
+            dispatch(editNote({ index, note: { ...currentNote, title, body } }));
+
         history.push("/");
     };
 
     return (
-        <div className="add-new-note-page">
+        <div className="edit-note-page">
             {titleError &&
                 <p className="error-message">
                     <FormattedMessage id="addNewItem.titleError" />
@@ -104,10 +106,10 @@ export const AddNewNote = () => {
             <div>
                 {isButtonDisabled ?
                     <Button onClick={submitNote} disabled style={{ margin: 4, backgroundColor: 'darkgray', color: 'white' }}>
-                        <FormattedMessage id="addNewItem.submitButton" />
+                        <FormattedMessage id="editItem.submitButton" />
                     </Button> :
                     <Button id="button-class" onClick={submitNote}>
-                        <FormattedMessage id="addNewItem.submitButton" />
+                        <FormattedMessage id="editItem.submitButton" />
                     </Button>
                 }
                 <Button id="button-class" onClick={() => history.push('/')}>

@@ -1,10 +1,11 @@
-import { Grid } from "@material-ui/core";
-import { useSelector } from "react-redux";
-import NoteItem from "./NoteItem";
-import AddNoteItem from "./AddNoteItem";
+import { Grid } from '@material-ui/core';
+import { useSelector } from 'react-redux';
 
-export default function NotesList() {
-    const notes = useSelector((state) => state.notes);
+import { getNotes } from '../selectors';
+import { AddNoteItem, NoteItem } from '../components';
+
+export const NotesList = () => {
+    const notes = useSelector(getNotes);
 
     return (
         <div className="notes-list">

@@ -1,9 +1,9 @@
-import { MenuItem, Select } from "@material-ui/core";
+import { MenuItem, Select } from '@material-ui/core';
 
-export default function LangChanger({
+export const LangChanger = ({
     currentLang,
     setCurrentLang
-}) {
+}) => {
 
     return (
         <div className="langChanger">
