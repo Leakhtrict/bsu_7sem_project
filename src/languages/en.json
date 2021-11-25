@@ -4,5 +4,11 @@
     "noteItem.editItem": "Edit note",
     "noteItem.deleteItem": "Delete note",
     "noteItem.moreOptions": "Note options",
-    "addTodo.error": "Maximum length is 100 characters"
+    "addNewItem.titleLabel": "Title(1 to 35 characters)",
+    "addNewItem.submitButton": "Add",
+    "addNewItem.cancelButton": "Cancel",
+    "addNewItem.titleError": "Title length must be from 1 to 35 characters",
+    "addNewItem.bodyError": "Max. note length is 400 characters",
+    "errorPage.titleMessage": "Oops... Something went wrong",
+    "errorPage.bodyMessage": "Try this"
 }

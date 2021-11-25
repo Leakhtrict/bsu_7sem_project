@@ -4,5 +4,11 @@
     "noteItem.editItem": "Изменить заметку",
     "noteItem.deleteItem": "Удалить заметку",
     "noteItem.moreOptions": "Управление заметкой",
-    "addTodo.error": "Максимальная длина - 100 символов"
+    "addNewItem.titleLabel": "Заголовок(от 1 до 35 символов)",
+    "addNewItem.submitButton": "Добавить",
+    "addNewItem.cancelButton": "Отмена",
+    "addNewItem.titleError": "Длина заголовка от 1 до 35 символов",
+    "addNewItem.bodyError": "Длина заметки не может превышать 400 символов",
+    "errorPage.titleMessage": "Упс... Что-то пошло не так",
+    "errorPage.bodyMessage": "Попробуйте перейти сюда "
 }

@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { notesReducer } from '../reducers/notes';
 
-export default configureStore({
+const store = configureStore({
     reducer: {
         notes: notesReducer.reducer,
     }
 });
+
+export default store;

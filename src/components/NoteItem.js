@@ -12,13 +12,13 @@ import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 
 export default function NoteItem({ index, note }) {
-    const { id, title, body, isFavorite, backgroundColor, fontColor } = note;
+    const { id, title, body, isFavorite } = note;
     const [isMenuOpened, setIsMenuOpened] = useState(false);
 
     const dispatch = useDispatch();
 
     return (
-        <div key={id} className="note" style={{ backgroundColor: backgroundColor, color: fontColor }}>
+        <div key={id} className="note">
             {isMenuOpened &&
                 <ButtonGroup>
                     <FormattedMessage id={isFavorite ? "noteItem.removeFromFavorite" : "noteItem.addToFavorite"}>

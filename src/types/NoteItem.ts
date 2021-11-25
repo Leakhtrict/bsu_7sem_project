@@ -1,8 +1,6 @@
 export type NoteItemType = {
-    id: number;
+    id: string;
     title: string;
     body?: string;
-    backgroundColor?: string;
-    fontColor?: string;
     isFavorite: boolean;
 };
