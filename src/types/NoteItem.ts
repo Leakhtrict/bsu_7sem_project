@@ -1,5 +1,5 @@
 export type NoteItemType = {
-    id: string;
+    uuid: string;
     title: string;
     body?: string;
     isFavorite: boolean;

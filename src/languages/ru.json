@@ -9,6 +9,7 @@
     "addNewItem.cancelButton": "Отмена",
     "addNewItem.titleError": "Длина заголовка от 1 до 35 символов",
     "addNewItem.bodyError": "Длина заметки не может превышать 400 символов",
+    "editItem.submitButton": "Подтвердить",
     "errorPage.titleMessage": "Упс... Что-то пошло не так",
     "errorPage.bodyMessage": "Попробуйте перейти сюда "
 }

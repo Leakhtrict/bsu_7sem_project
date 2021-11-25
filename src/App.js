@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import { IntlProvider } from "react-intl";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useState } from 'react';
+import { IntlProvider } from 'react-intl';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import LangChanger from "./components/LangChanger";
-import NotesList from "./components/NotesList";
-import AddNewNote from "./pages/AddNewNote";
-import ErrorPage from "./pages/ErrorPage";
-import enMessages from "./languages/en.json";
-import ruMessages from "./languages/ru.json";
+import enMessages from './languages/en.json';
+import ruMessages from './languages/ru.json';
+import { LangChanger, NotesList } from './components';
+import { AddNewNote, ErrorPage, EditNote } from './pages';
 
 import './App.css';
 
@@ -26,6 +24,7 @@ function App() {
                     <Switch className="shownPage">
                         <Route path="/" exact component={NotesList} />
                         <Route path="/addNewNote" exact component={AddNewNote} />
+                        <Route path="/editNote/:index" exact component={EditNote} />
                         <Route path="*" exact component={ErrorPage} />
                     </Switch>
                 </Router>

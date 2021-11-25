@@ -9,6 +9,7 @@
     "addNewItem.cancelButton": "Cancel",
     "addNewItem.titleError": "Title length must be from 1 to 35 characters",
     "addNewItem.bodyError": "Max. note length is 400 characters",
+    "editItem.submitButton": "Submit",
     "errorPage.titleMessage": "Oops... Something went wrong",
     "errorPage.bodyMessage": "Try this"
 }
