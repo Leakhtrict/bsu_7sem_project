@@ -36,7 +36,7 @@ body{
     height: auto;
     max-height: 300px;
     background-color: coral;
-    word-break: break-all;
+    word-break: break-word;
     margin: 12px;
     padding: 8px;
     border-radius: 10px;
@@ -44,6 +44,7 @@ body{
 }
 
 .note__body {
+    text-align: start;
     max-height: 192px;
     overflow-y: auto;
     margin: 0 8px 14px;

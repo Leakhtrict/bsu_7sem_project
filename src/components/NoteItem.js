@@ -52,7 +52,7 @@ export const NoteItem = ({ index, note }) => {
                 </ButtonGroup>
             }
             <div style={{ display: "flex", alignItems: "center" }}>
-                <b style={{ marginLeft: 12 }}>{title}</b>
+                <b style={{ marginLeft: 12, paddingBottom: 4 }}>{title}</b>
                 <div style={{ marginLeft: "auto" }}>
                     <FormattedMessage id="noteItem.moreOptions">
                         {(id) =>
