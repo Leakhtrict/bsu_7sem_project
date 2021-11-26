@@ -23,6 +23,7 @@ export const NoteItem = ({ index, note }) => {
 
     return (
         <div key={uuid} className="note">
+            {isFavorite && <div className="favorite-star" />}
             {isMenuOpened &&
                 <ButtonGroup>
                     <FormattedMessage id={isFavorite ? "noteItem.removeFromFavorite" : "noteItem.addToFavorite"}>
