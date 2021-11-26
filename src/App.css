@@ -35,7 +35,7 @@ body{
 .note {
     height: auto;
     max-height: 300px;
-    background-color: coral;
+    background-color: rgb(249, 235, 118);
     word-break: break-word;
     margin: 12px;
     padding: 8px;
