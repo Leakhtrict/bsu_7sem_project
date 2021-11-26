@@ -19,6 +19,7 @@ export const notesReducer = createSlice({
         builder.addCase(getNotesFromLocalStorage.fulfilled, (state, { payload }) => JSON.parse(payload));
         builder.addCase(addNote.fulfilled, (state, { payload }) => {
             state.unshift(payload);
+            state.sort((a, b) => Number(b.isFavorite) - Number(a.isFavorite));
 
             localStorage.setItem("bsu_project.notes", JSON.stringify(state));
             return state;
@@ -27,14 +28,27 @@ export const notesReducer = createSlice({
         builder.addCase(editNote.fulfilled, (state, { payload: { index, note } }) => {
             state.splice(index, 1);
             state.unshift(note);
+            state.sort((a, b) => Number(b.isFavorite) - Number(a.isFavorite));
 
             localStorage.setItem("bsu_project.notes", JSON.stringify(state));
             return state;
         });
         builder.addCase(editNote.rejected, (state, payload) => alert(payload.error));
         builder.addCase(changeFavorite.fulfilled, (state, { payload }) => {
-            const updFavField = !state[payload].isFavorite;
-            state[payload].isFavorite = updFavField;
+            const currentNote = state[payload];
+
+            if (currentNote.isFavorite) {
+                state[payload].isFavorite = false;
+
+                state.splice(payload, 1);
+                state.unshift(currentNote);
+                state.sort((a, b) => Number(b.isFavorite) - Number(a.isFavorite));
+            } else {
+                state[payload].isFavorite = true;
+
+                state.splice(payload, 1);
+                state.unshift(currentNote);
+            }
 
             localStorage.setItem("bsu_project.notes", JSON.stringify(state));
             return state;

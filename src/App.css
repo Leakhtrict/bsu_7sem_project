@@ -43,6 +43,16 @@ body{
     box-shadow: rgba(70, 68, 68, 0.445) 0 2px 8px 0;
 }
 
+.favorite-star {
+    height: 24px;
+    width: 24px;
+    position: relative;
+    margin-bottom: -24px;
+    top: -18px;
+    left: 97.5%;
+    background-image: url("images/star-24.png");
+}
+
 .note__body {
     text-align: start;
     max-height: 192px;
