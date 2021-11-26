@@ -55,7 +55,7 @@ body{
 
 .note__body {
     text-align: start;
-    max-height: 192px;
+    max-height: 216px;
     overflow-y: auto;
     margin: 0 8px 14px;
     border-top: 1px solid black;

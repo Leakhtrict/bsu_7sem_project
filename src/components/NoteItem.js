@@ -29,7 +29,10 @@ export const NoteItem = ({ index, note }) => {
                 <ButtonGroup style={{ height: 24, marginBottom: 8 }}>
                     <FormattedMessage id={isFavorite ? "noteItem.removeFromFavorite" : "noteItem.addToFavorite"}>
                         {(id) =>
-                            <IconButton title={id} onClick={() => dispatch(changeFavorite(index))}>
+                            <IconButton title={id} onClick={() => {
+                                setIsMenuOpened(false);
+                                dispatch(changeFavorite(index));
+                            }}>
                                 {isFavorite ? <StarIcon /> : <StarBorderIcon />}
                             </IconButton>
                         }
