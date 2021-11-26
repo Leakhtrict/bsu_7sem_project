@@ -16,16 +16,17 @@ import { changeFavorite, deleteNote } from '../actions';
 export const NoteItem = ({ index, note }) => {
     let history = useHistory();
 
-    const { uuid, title, body, isFavorite } = note;
-    const [isMenuOpened, setIsMenuOpened] = useState(false);
-
     const dispatch = useDispatch();
+
+    const { uuid, title, body, isFavorite } = note;
+
+    const [isMenuOpened, setIsMenuOpened] = useState(false);
 
     return (
         <div key={uuid} className="note">
             {isFavorite && <div className="favorite-star" />}
             {isMenuOpened &&
-                <ButtonGroup>
+                <ButtonGroup style={{ height: 24, marginBottom: 8 }}>
                     <FormattedMessage id={isFavorite ? "noteItem.removeFromFavorite" : "noteItem.addToFavorite"}>
                         {(id) =>
                             <IconButton title={id} onClick={() => dispatch(changeFavorite(index))}>
@@ -52,8 +53,8 @@ export const NoteItem = ({ index, note }) => {
                     </FormattedMessage>
                 </ButtonGroup>
             }
-            <div style={{ display: "flex", alignItems: "center" }}>
-                <b style={{ marginLeft: 12, paddingBottom: 4 }}>{title}</b>
+            <div style={{ display: "flex", alignItems: "center", borderTop: isMenuOpened ? '1px solid black' : 'none' }}>
+                <b style={{ marginLeft: 12, padding: '4px 0' }}>{title}</b>
                 <div style={{ marginLeft: "auto" }}>
                     <FormattedMessage id="noteItem.moreOptions">
                         {(id) =>

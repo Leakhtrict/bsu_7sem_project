@@ -120,13 +120,13 @@ body{
 }
 
 .note__body::-webkit-scrollbar-thumb {
-    background: rgba(225, 105, 80, 0.52);
-    background: -webkit-linear-gradient(rgba(225, 105, 80, 0.52), rgba(225, 105, 80, 0.52));
-    background: linear-gradient(rgba(225, 105, 80, 0.52), rgba(225, 105, 80, 0.52));
+    background: rgba(218, 143, 40, 0.64);
+    background: -webkit-linear-gradient(rgba(218, 143, 40, 0.64), rgba(218, 143, 40, 0.64));
+    background: linear-gradient(rgba(218, 143, 40, 0.64), rgba(218, 143, 40, 0.64));
 }
 
 .note__body::-webkit-scrollbar-thumb:hover {
-    background: rgba(225, 105, 80, 0.75);
+    background: rgb(218, 143, 40);
 }
 
 ::-webkit-scrollbar {
