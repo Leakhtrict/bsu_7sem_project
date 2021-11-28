@@ -1,4 +1,5 @@
 {
+    "notesList.forFunButton": "Мини-игра",
     "noteItem.addToFavorite": "Добавить в Избранное",
     "noteItem.removeFromFavorite": "Удалить из Избранного",
     "noteItem.editItem": "Изменить заметку",
@@ -11,5 +12,8 @@
     "addNewItem.bodyError": "Длина заметки не может превышать 400 символов",
     "editItem.submitButton": "Подтвердить",
     "errorPage.titleMessage": "Упс... Что-то пошло не так",
-    "errorPage.bodyMessage": "Попробуйте перейти сюда "
+    "errorPage.bodyMessage": "Попробуйте перейти сюда ",
+    "forFun.clicks": "клик(а/ов)",
+    "forFun.reset": "Сбросить",
+    "forFun.goHome": "На главную"
 }

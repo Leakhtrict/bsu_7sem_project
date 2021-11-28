@@ -68,26 +68,30 @@ body{
     color: red;
 }
 
-#button-class {
+#button-class, #columns-button-class {
     margin: 4px;
     background-color: coral;
     color: white;
 }
 
-#button-class:hover {
+#columns-button-class {
+    margin: 0;
+}
+
+#button-class:hover, #columns-button-class:hover {
     color: coral;
     background-color: transparent;
 }
 
 .add-note-item {
-    height: 310px;
+    height: 271px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
     border: 3px dotted #808080;
     background-color: rgb(233, 229, 229);
-    margin: 12px;
+    margin: 0 12px 12px;
 }
 
 .add-note-item:hover {
@@ -142,4 +146,13 @@ body{
 
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(208, 98, 98, 0.47);
+}
+
+.column {
+    text-align: center;
+    width: 100px;
+    margin: 0 20px;
+    font-size: 40px;
+    -webkit-transition: height 2s, background-color 500ms, border 500ms;
+    transition: height 2s, background-color 500ms, border 500ms;
 }
