@@ -103,7 +103,7 @@ export const AddNewNote = () => {
             </div>
             <div>
                 {isButtonDisabled ?
-                    <Button onClick={submitNote} disabled style={{ margin: 4, backgroundColor: 'darkgray', color: 'white' }}>
+                    <Button disabled style={{ margin: 4, backgroundColor: 'darkgray', color: 'white' }}>
                         <FormattedMessage id="addNewItem.submitButton" />
                     </Button> :
                     <Button id="button-class" onClick={submitNote}>

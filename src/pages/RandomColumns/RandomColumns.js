@@ -36,9 +36,14 @@ export const RandomColumns = () => {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <ButtonGroup style={{ marginTop: 10 }}>
-                <Button id="columns-button-class" onClick={onAddClick} disabled={isAddDisabled}>
-                    {numberOfClicks} <FormattedMessage id="forFun.clicks" />
-                </Button>
+                {isAddDisabled ?
+                    <Button disabled style={{ backgroundColor: 'darkgray', color: 'white' }}>
+                        {numberOfClicks} <FormattedMessage id="forFun.clicks" />
+                    </Button> :
+                    <Button id="columns-button-class" onClick={onAddClick}>
+                        {numberOfClicks} <FormattedMessage id="forFun.clicks" />
+                    </Button>
+                }
                 <Button id="columns-button-class" onClick={onResetClick}>
                     <FormattedMessage id="forFun.reset" />
                 </Button>
