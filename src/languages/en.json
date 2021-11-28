@@ -1,4 +1,5 @@
 {
+    "notesList.forFunButton": "Mini-game",
     "noteItem.addToFavorite": "Add to Favorite",
     "noteItem.removeFromFavorite": "Remove from Favorite",
     "noteItem.editItem": "Edit note",
@@ -11,5 +12,8 @@
     "addNewItem.bodyError": "Max. note length is 400 characters",
     "editItem.submitButton": "Submit",
     "errorPage.titleMessage": "Oops... Something went wrong",
-    "errorPage.bodyMessage": "Try this"
+    "errorPage.bodyMessage": "Try this",
+    "forFun.clicks": "clicks",
+    "forFun.reset": "Reset",
+    "forFun.goHome": "Main page"
 }

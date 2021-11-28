@@ -1,16 +1,23 @@
-import { Grid } from '@material-ui/core';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
+import { Button, Grid } from '@material-ui/core';
 
 import { getNotes } from '../selectors';
 import { AddNoteItem, NoteItem } from '../components';
 
 export const NotesList = () => {
+    let history = useHistory();
+
     const notes = useSelector(getNotes);
 
     return (
         <div className="notes-list">
             <Grid container alignItems="flex-start">
                 <Grid item xl={1} lg={2} md={3} sm={4} xs={12}>
+                    <Button id="button-class" onClick={() => history.push("/forFun")} style={{ width: '91%' }} >
+                        <FormattedMessage id="notesList.forFunButton" />
+                    </Button>
                     <AddNoteItem />
                 </Grid>
                 {notes && notes.map((note, key) =>

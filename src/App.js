@@ -3,11 +3,17 @@ import { useDispatch } from 'react-redux';
 import { IntlProvider } from 'react-intl';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import {
+    AddNewNote,
+    ErrorPage,
+    EditNote,
+    NotesList,
+    RandomColumns
+} from './pages';
+import { LangChanger } from './components';
 import enMessages from './languages/en.json';
 import ruMessages from './languages/ru.json';
 import { getNotesFromLocalStorage } from './actions';
-import { LangChanger, NotesList } from './components';
-import { AddNewNote, ErrorPage, EditNote } from './pages';
 
 import './App.css';
 
@@ -33,6 +39,7 @@ function App() {
                         <Route path="/" exact component={NotesList} />
                         <Route path="/addNewNote" exact component={AddNewNote} />
                         <Route path="/editNote/:index" exact component={EditNote} />
+                        <Route path="/forFun" exact component={RandomColumns} />
                         <Route path="*" exact component={ErrorPage} />
                     </Switch>
                 </Router>
