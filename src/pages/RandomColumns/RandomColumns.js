@@ -34,7 +34,7 @@ export const RandomColumns = () => {
     };
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div className="random-columns" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <ButtonGroup style={{ marginTop: 10 }}>
                 {isAddDisabled ?
                     <Button disabled style={{ backgroundColor: 'darkgray', color: 'white' }}>
@@ -51,7 +51,7 @@ export const RandomColumns = () => {
                     <FormattedMessage id="forFun.goHome" />
                 </Button>
             </ButtonGroup>
-            <div style={{ height: 800, margin: 50, display: 'flex', alignItems: 'end' }}>
+            <div className="all-columns">
                 {allColumns.map((value, key) =>
                     <Column key={key} color={value.color} height={value.height} />
                 )}
