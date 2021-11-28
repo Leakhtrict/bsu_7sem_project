@@ -35,7 +35,7 @@ function App() {
         <div className="App">
             <IntlProvider locale={currentLang} messages={langSet[currentLang]}>
                 <Router>
-                    <Switch className="shownPage">
+                    <Switch>
                         <Route path="/" exact component={NotesList} />
                         <Route path="/addNewNote" exact component={AddNewNote} />
                         <Route path="/editNote/:index" exact component={EditNote} />

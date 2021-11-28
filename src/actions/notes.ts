@@ -4,17 +4,27 @@ import { NoteItemType } from '../types';
 
 export const getNotesFromLocalStorage = createAsyncThunk(
     '@notes/getNotesFromLocalStorage',
-    () => localStorage.getItem("bsu_project.notes") || ''
+    (_, { rejectWithValue }) => {
+        try {
+            return localStorage.getItem("bsu_project.notes") || '';
+        } catch (error) {
+            return rejectWithValue(error);
+        }
+    }
 );
 
 export const addNote = createAsyncThunk(
     '@notes/addNote',
     (note: NoteItemType, { rejectWithValue }) => {
-        if (note.title.length > 35 || note.title.length === 0 || (note.body && note.body.length > 400)) {
-            return rejectWithValue({ error: "Max. title length - 35, body - 400" });
-        }
+        try {
+            if (note.title.length > 35 || note.title.length === 0 || (note.body && note.body.length > 400)) {
+                return rejectWithValue({ error: "Max. title length - 35, body - 400" });
+            }
 
-        return note;
+            return note;
+        } catch (error) {
+            return rejectWithValue(error);
+        }
     }
 );
 

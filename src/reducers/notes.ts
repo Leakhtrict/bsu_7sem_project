@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { NoteItemType } from '../types';
 import {
     addNote,
     changeFavorite,
@@ -8,8 +7,11 @@ import {
     editNote,
     getNotesFromLocalStorage
 } from '../actions';
+import { NoteItemType } from '../types';
 
 const defaultState: NoteItemType[] = [];
+
+const errorText = "Something went wrong";
 
 export const notesReducer = createSlice({
     name: '@notes',
@@ -17,6 +19,7 @@ export const notesReducer = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder.addCase(getNotesFromLocalStorage.fulfilled, (state, { payload }) => JSON.parse(payload));
+        builder.addCase(getNotesFromLocalStorage.rejected, () => alert(errorText));
         builder.addCase(addNote.fulfilled, (state, { payload }) => {
             state.unshift(payload);
             state.sort((a, b) => Number(b.isFavorite) - Number(a.isFavorite));
@@ -24,7 +27,7 @@ export const notesReducer = createSlice({
             localStorage.setItem("bsu_project.notes", JSON.stringify(state));
             return state;
         });
-        builder.addCase(addNote.rejected, (state, payload) => alert(payload.error));
+        builder.addCase(addNote.rejected, () => alert(errorText));
         builder.addCase(editNote.fulfilled, (state, { payload: { index, note } }) => {
             state.splice(index, 1);
             state.unshift(note);
@@ -33,7 +36,7 @@ export const notesReducer = createSlice({
             localStorage.setItem("bsu_project.notes", JSON.stringify(state));
             return state;
         });
-        builder.addCase(editNote.rejected, (state, payload) => alert(payload.error));
+        builder.addCase(editNote.rejected, () => alert(errorText));
         builder.addCase(changeFavorite.fulfilled, (state, { payload }) => {
             const currentNote = state[payload];
 
@@ -53,13 +56,13 @@ export const notesReducer = createSlice({
             localStorage.setItem("bsu_project.notes", JSON.stringify(state));
             return state;
         });
-        builder.addCase(changeFavorite.rejected, (state, payload) => alert(payload.error));
+        builder.addCase(changeFavorite.rejected, () => alert(errorText));
         builder.addCase(deleteNote.fulfilled, (state, { payload }) => {
             state.splice(payload, 1);
 
             localStorage.setItem("bsu_project.notes", JSON.stringify(state));
             return state;
         });
-        builder.addCase(deleteNote.rejected, (state, payload) => alert(payload.error));
+        builder.addCase(deleteNote.rejected, () => alert(errorText));
     },
 });
