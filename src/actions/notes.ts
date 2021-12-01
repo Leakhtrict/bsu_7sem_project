@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { NoteItemType } from '../types';
+import { NotesItem } from '../types';
 
 export const getNotesFromLocalStorage = createAsyncThunk(
     '@notes/getNotesFromLocalStorage',
@@ -15,7 +15,7 @@ export const getNotesFromLocalStorage = createAsyncThunk(
 
 export const addNote = createAsyncThunk(
     '@notes/addNote',
-    (note: NoteItemType, { rejectWithValue }) => {
+    (note: NotesItem, { rejectWithValue }) => {
         try {
             const { title, body } = note;
 
@@ -32,7 +32,7 @@ export const addNote = createAsyncThunk(
 
 interface IEditNote {
     index: number;
-    note: NoteItemType;
+    note: NotesItem;
 }
 
 export const editNote = createAsyncThunk(

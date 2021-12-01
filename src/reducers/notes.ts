@@ -7,9 +7,9 @@ import {
     editNote,
     getNotesFromLocalStorage
 } from '../actions';
-import { NoteItemType } from '../types';
+import { NotesItem } from '../types';
 
-const defaultState: NoteItemType[] = [];
+const defaultState: NotesItem[] = [];
 
 const errorText = "Something went wrong";
 
