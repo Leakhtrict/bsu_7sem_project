@@ -10,7 +10,7 @@
     flex-direction: column;
     font-family: "Arial", "Helvetica", sans-serif;
     font-size: 16px;
-    background-image: url(https://res.cloudinary.com/genis-project/image/upload/v1630238542/genis-project-background-image_ok1zew.jpg);
+    background-image: url("images/background.jpg");
 }
 
 body{
