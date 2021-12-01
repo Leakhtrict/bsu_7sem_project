@@ -6,7 +6,7 @@ export const getNotesFromLocalStorage = createAsyncThunk(
     '@notes/getNotesFromLocalStorage',
     (_, { rejectWithValue }) => {
         try {
-            return localStorage.getItem("bsu_project.notes") || '';
+            return localStorage.getItem("bsu_project.notes") || '[]';
         } catch (error) {
             return rejectWithValue(error);
         }
@@ -17,7 +17,9 @@ export const addNote = createAsyncThunk(
     '@notes/addNote',
     (note: NoteItemType, { rejectWithValue }) => {
         try {
-            if (note.title.length > 35 || note.title.length === 0 || (note.body && note.body.length > 400)) {
+            const { title, body } = note;
+
+            if (title.length > 35 || title.length === 0 || (body && body.length > 400)) {
                 return rejectWithValue({ error: "Max. title length - 35, body - 400" });
             }
 
@@ -36,11 +38,17 @@ interface IEditNote {
 export const editNote = createAsyncThunk(
     '@notes/editNote',
     ({ index, note }: IEditNote, { rejectWithValue }) => {
-        if (note.title.length > 35 || note.title.length === 0 || (note.body && note.body.length > 400)) {
-            return rejectWithValue({ error: "Max. title length - 35, body - 400" });
-        }
+        try {
+            const { title, body } = note;
 
-        return { index, note };
+            if (title.length > 35 || title.length === 0 || (body && body.length > 400)) {
+                return rejectWithValue({error: "Max. title length - 35, body - 400"});
+            }
+
+            return { index, note };
+        } catch (error) {
+            return rejectWithValue(error);
+        }
     }
 );
 
