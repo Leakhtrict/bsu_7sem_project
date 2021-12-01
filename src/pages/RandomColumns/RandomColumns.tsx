@@ -6,6 +6,8 @@ import { Button, ButtonGroup } from '@material-ui/core';
 import { Column } from './Column';
 import { ZEROED_COLUMNS } from './START_COLUMNS';
 
+import './RandomColumns.css';
+
 export const RandomColumns: FC = () => {
     let history = useHistory();
 

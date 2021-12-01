@@ -1,0 +1,10 @@
+.notes-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#button-class {
+    width: 91%;
+}

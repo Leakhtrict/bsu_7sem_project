@@ -1,0 +1,57 @@
+.note {
+    height: auto;
+    max-height: 300px;
+    background-color: rgb(249, 235, 118);
+    word-break: break-word;
+    margin: 12px;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: rgba(70, 68, 68, 0.445) 0 2px 8px 0;
+}
+
+.favorite-star {
+    height: 24px;
+    width: 24px;
+    position: relative;
+    margin-bottom: -24px;
+    top: -18px;
+    left: 97.5%;
+    background-image: url("../../images/star-24.png");
+}
+
+.note__options {
+    height: 24px;
+    margin-bottom: 8px;
+}
+
+.note__title {
+    display: flex;
+    align-items: center;
+}
+
+.note__title__text {
+    margin-left: 12px;
+    padding: 4px 0;
+}
+
+.note__title__button {
+    margin-left: auto;
+}
+
+.note__body {
+    text-align: start;
+    max-height: 216px;
+    overflow-y: auto;
+    margin: 0 8px 14px;
+    border-top: 1px solid black;
+}
+
+.note__body::-webkit-scrollbar-thumb {
+    background: rgba(218, 143, 40, 0.64);
+    background: -webkit-linear-gradient(rgba(218, 143, 40, 0.64), rgba(218, 143, 40, 0.64));
+    background: linear-gradient(rgba(218, 143, 40, 0.64), rgba(218, 143, 40, 0.64));
+}
+
+.note__body::-webkit-scrollbar-thumb:hover {
+    background: rgb(218, 143, 40);
+}

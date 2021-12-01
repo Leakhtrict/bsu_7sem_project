@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 
+import './ErrorPage.css';
+
 export const ErrorPage: FC = () => {
     let history = useHistory();
 
