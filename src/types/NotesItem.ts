@@ -1,4 +1,4 @@
-export type NoteItemType = {
+export type NotesItem = {
     uuid: string;
     title: string;
     body?: string;

@@ -6,12 +6,12 @@ import { FormattedMessage } from 'react-intl';
 import { ButtonGroup, IconButton } from '@material-ui/core';
 import { Star, Edit, Close, Delete, MoreVert, StarBorder } from '@material-ui/icons';
 
-import { NoteItemType } from '../types';
+import { NotesItem } from '../types';
 import { changeFavorite, deleteNote } from '../actions';
 
 interface INoteItem {
     index: number;
-    note: NoteItemType;
+    note: NotesItem;
 }
 
 export const NoteItem: FC<INoteItem> = ({ index, note }) => {
