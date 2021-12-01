@@ -43,7 +43,13 @@ export const RandomColumns: FC = () => {
                         {numberOfClicks} <FormattedMessage id="forFun.clicks" />
                     </Button> :
                     <Button id="columns-button-class" onClick={onAddClick}>
-                        {numberOfClicks} <FormattedMessage id="forFun.clicks" />
+                        {numberOfClicks ?
+                            <>
+                                {numberOfClicks} <FormattedMessage id="forFun.clicks" />
+                            </> :
+                            <FormattedMessage id="forFun.clickHere" />
+                        }
+
                     </Button>
                 }
                 <Button id="columns-button-class" onClick={onResetClick}>
