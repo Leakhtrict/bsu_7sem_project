@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, FC, useState } from 'react';
 import ReactMde from 'react-mde';
 import * as Showdown from 'showdown';
 import { useHistory } from 'react-router-dom';
@@ -20,7 +20,7 @@ const converter = new Showdown.Converter({
     tasklists: true
 });
 
-export const AddNewNote = () => {
+export const AddNewNote: FC = () => {
     let history = useHistory();
     const dispatch = useAppDispatch();
 

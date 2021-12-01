@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, FC, useState } from 'react';
 import ReactMde from 'react-mde';
 import * as Showdown from 'showdown';
 import { useSelector } from 'react-redux';
@@ -21,7 +21,7 @@ const converter = new Showdown.Converter({
     tasklists: true
 });
 
-export const EditNote = () => {
+export const EditNote: FC = () => {
     let { index } = useParams() as { index: string };
     const currentNote = useSelector(getNoteByIndex(Number(index)))
 
