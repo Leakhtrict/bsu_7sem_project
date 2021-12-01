@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import ReactMde from 'react-mde';
 import * as Showdown from 'showdown';
+import { useSelector } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import { Button, TextField } from '@material-ui/core';
-import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
 import { editNote } from '../actions';
+import { useAppDispatch } from '../store';
+import { MarkdownOptions } from '../types';
 import { getNoteByIndex } from '../selectors';
 
 import 'react-mde/lib/styles/css/react-mde-all.css';
@@ -19,13 +21,13 @@ const converter = new Showdown.Converter({
 });
 
 export const EditNote = () => {
-    let { index } = useParams();
-    const currentNote = useSelector(getNoteByIndex(index))
+    let { index } = useParams() as { index: string };
+    const currentNote = useSelector(getNoteByIndex(Number(index)))
 
     const { title: noteTitle, body: noteBody } = currentNote;
 
     let history = useHistory();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const [title, setTitle] = useState(noteTitle);
     const [titleError, setTitleError] = useState(false);
@@ -33,11 +35,11 @@ export const EditNote = () => {
     const [body, setBody] = useState(noteBody);
     const [bodyError, setBodyError] = useState(false);
 
-    const [selectedTab, setSelectedTab] = useState('write');
+    const [selectedTab, setSelectedTab] = useState<MarkdownOptions>('write');
 
     const isButtonDisabled = title.length === 0 || title.length > 35 || bodyError;
 
-    const onTitleChange = (event) => {
+    const onTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const newTitle = event.target.value;
 
         if (newTitle.length === 0 || newTitle.length > 35)
@@ -45,10 +47,10 @@ export const EditNote = () => {
         else
             setTitleError(false);
 
-        setTitle(event.target.value)
+        setTitle(newTitle);
     };
 
-    const onBodyChange = (value) => {
+    const onBodyChange = (value: string) => {
         if (value.length > 400)
             setBodyError(true);
         else
@@ -57,9 +59,9 @@ export const EditNote = () => {
         setBody(value);
     }
 
-    const submitNote = () => {
+    const submitNote = async () => {
         if (title !== noteTitle || body !== noteBody)
-            dispatch(editNote({ index, note: { ...currentNote, title, body } }));
+            await dispatch(editNote({ index: Number(index), note: { ...currentNote, title, body } }));
 
         history.push('/');
     };
@@ -77,7 +79,7 @@ export const EditNote = () => {
                         className="edit-note-page__title"
                         error={titleError}
                         value={title}
-                        placeholder={id[0]}
+                        placeholder={String(id[0])}
                         onChange={onTitleChange}
                     />
                 }

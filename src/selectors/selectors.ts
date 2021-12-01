@@ -1,4 +1,4 @@
-import { RootState } from '../types/RootState';
+import { RootState } from '../types';
 
 export const getNotes = (state: RootState) => state.notes;
 

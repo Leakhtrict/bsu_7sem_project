@@ -1,11 +1,16 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
+import { Action, configureStore, ThunkDispatch } from '@reduxjs/toolkit';
 
 import { notesReducer } from '../reducers';
 
-const store = configureStore({
+export const store = configureStore({
     reducer: {
         notes: notesReducer.reducer,
     }
 });
 
-export default store;
+type RootState = ReturnType<typeof store.getState>;
+
+type ThunkAppDispatch = ThunkDispatch<RootState, void, Action>;
+
+export const useAppDispatch = () => useDispatch<ThunkAppDispatch>();

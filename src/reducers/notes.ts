@@ -11,7 +11,7 @@ import { NotesItem } from '../types';
 
 const defaultState: NotesItem[] = [];
 
-const errorText = "Something went wrong";
+const errorText = 'Something went wrong';
 
 export const notesReducer = createSlice({
     name: '@notes',
@@ -24,7 +24,7 @@ export const notesReducer = createSlice({
             state.unshift(payload);
             state.sort((a, b) => Number(b.isFavorite) - Number(a.isFavorite));
 
-            localStorage.setItem("bsu_project.notes", JSON.stringify(state));
+            localStorage.setItem('bsu_project.notes', JSON.stringify(state));
             return state;
         });
         builder.addCase(addNote.rejected, () => alert(errorText));
@@ -33,7 +33,7 @@ export const notesReducer = createSlice({
             state.unshift(note);
             state.sort((a, b) => Number(b.isFavorite) - Number(a.isFavorite));
 
-            localStorage.setItem("bsu_project.notes", JSON.stringify(state));
+            localStorage.setItem('bsu_project.notes', JSON.stringify(state));
             return state;
         });
         builder.addCase(editNote.rejected, () => alert(errorText));
@@ -53,14 +53,14 @@ export const notesReducer = createSlice({
                 state.unshift(currentNote);
             }
 
-            localStorage.setItem("bsu_project.notes", JSON.stringify(state));
+            localStorage.setItem('bsu_project.notes', JSON.stringify(state));
             return state;
         });
         builder.addCase(changeFavorite.rejected, () => alert(errorText));
         builder.addCase(deleteNote.fulfilled, (state, { payload }) => {
             state.splice(payload, 1);
 
-            localStorage.setItem("bsu_project.notes", JSON.stringify(state));
+            localStorage.setItem('bsu_project.notes', JSON.stringify(state));
             return state;
         });
         builder.addCase(deleteNote.rejected, () => alert(errorText));
