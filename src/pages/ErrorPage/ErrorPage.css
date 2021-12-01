@@ -1,0 +1,11 @@
+.error-page {
+    color: cornflowerblue;
+    text-decoration: underline;
+    text-decoration-color: cornflowerblue;
+}
+
+.error-page:hover {
+    cursor: pointer;
+    color: mediumpurple;
+    text-decoration: none;
+}

@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import './AddNoteItem.css';
+
 export const AddNoteItem: FC = () => {
     let history = useHistory();
 

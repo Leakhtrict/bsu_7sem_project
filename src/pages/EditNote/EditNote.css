@@ -1,0 +1,35 @@
+.edit-note-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-note-page__title {
+    width: 70vw;
+    max-width: 700px;
+    margin: 12px 0 !important;
+}
+
+.edit-note-page__body {
+    width: 90vw;
+    max-width: 800px;
+    margin: 12px 0;
+}
+
+.edit-note-page__buttons {
+    display: flex;
+}
+
+.error-message {
+    margin-top: 24px;
+    font-family: "Arial", "Helvetica", sans-serif;
+    font-size: 13px;
+    color: red;
+}
+
+.edit-note-page #disabled-button {
+    margin: 4px;
+    background-color: darkgray;
+    color: white;
+}

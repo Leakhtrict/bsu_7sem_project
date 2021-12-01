@@ -5,9 +5,11 @@ import { FormattedMessage } from 'react-intl';
 import { ButtonGroup, IconButton } from '@material-ui/core';
 import { Star, Edit, Close, Delete, MoreVert, StarBorder } from '@material-ui/icons';
 
-import { NotesItem } from '../types';
-import { useAppDispatch } from '../store';
-import { changeFavorite, deleteNote } from '../actions';
+import { NotesItem } from '../../types';
+import { useAppDispatch } from '../../store';
+import { changeFavorite, deleteNote } from '../../actions';
+
+import './NoteItem.css';
 
 interface INoteItem {
     index: number;
@@ -48,8 +50,8 @@ export const NoteItem: FC<INoteItem> = ({ index, note }) => {
                     <FormattedMessage id="noteItem.deleteItem">
                         {(id) =>
                             <IconButton title={String(id[0])} onClick={async () => {
-                                await dispatch(deleteNote(index));
                                 setIsMenuOpened(!isMenuOpened);
+                                await dispatch(deleteNote(index));
                             }}>
                                 <Delete />
                             </IconButton>

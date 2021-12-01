@@ -1,15 +1,17 @@
 import React, { ChangeEvent, useState } from 'react';
 import ReactMde from 'react-mde';
 import * as Showdown from 'showdown';
-import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import { Button, TextField } from '@material-ui/core';
-import { generateUniqueID } from 'web-vitals/dist/modules/lib/generateUniqueID';
+import { useHistory, useParams } from 'react-router-dom';
 
-import { addNote } from '../actions';
-import { useAppDispatch } from '../store';
-import { MarkdownOptions } from '../types';
+import { editNote } from '../../actions';
+import { useAppDispatch } from '../../store';
+import { MarkdownOptions } from '../../types';
+import { getNoteByIndex } from '../../selectors';
 
+import './EditNote.css';
 import 'react-mde/lib/styles/css/react-mde-all.css';
 
 const converter = new Showdown.Converter({
@@ -19,14 +21,19 @@ const converter = new Showdown.Converter({
     tasklists: true
 });
 
-export const AddNewNote = () => {
+export const EditNote = () => {
+    let { index } = useParams() as { index: string };
+    const currentNote = useSelector(getNoteByIndex(Number(index)))
+
+    const { title: noteTitle, body: noteBody } = currentNote;
+
     let history = useHistory();
     const dispatch = useAppDispatch();
 
-    const [title, setTitle] = useState('');
+    const [title, setTitle] = useState(noteTitle);
     const [titleError, setTitleError] = useState(false);
 
-    const [body, setBody] = useState('');
+    const [body, setBody] = useState(noteBody);
     const [bodyError, setBodyError] = useState(false);
 
     const [selectedTab, setSelectedTab] = useState<MarkdownOptions>('write');
@@ -54,17 +61,14 @@ export const AddNewNote = () => {
     }
 
     const submitNote = async () => {
-        await dispatch(addNote({
-            uuid: generateUniqueID(),
-            title,
-            body,
-            isFavorite: false
-        }));
+        if (title !== noteTitle || body !== noteBody)
+            await dispatch(editNote({ index: Number(index), note: { ...currentNote, title, body } }));
+
         history.push('/');
     };
 
     return (
-        <div className="add-new-note-page">
+        <div className="edit-note-page">
             {titleError &&
                 <p className="error-message">
                     <FormattedMessage id="addNewItem.titleError" />
@@ -73,7 +77,7 @@ export const AddNewNote = () => {
             <FormattedMessage id="addNewItem.titleLabel">
                 {(id) =>
                     <TextField
-                        className="add-new-note-page__title"
+                        className="edit-note-page__title"
                         error={titleError}
                         value={title}
                         placeholder={String(id[0])}
@@ -86,7 +90,7 @@ export const AddNewNote = () => {
                     <FormattedMessage id="addNewItem.bodyError" />
                 </p>
             }
-            <div className="add-new-note-page__body">
+            <div className="edit-note-page__body">
                 <ReactMde
                     value={body}
                     onChange={onBodyChange}
@@ -102,13 +106,13 @@ export const AddNewNote = () => {
                     }}
                 />
             </div>
-            <div>
+            <div className="edit-note-page__buttons">
                 {isButtonDisabled ?
                     <Button id="disabled-button" disabled>
-                        <FormattedMessage id="addNewItem.submitButton" />
+                        <FormattedMessage id="editItem.submitButton" />
                     </Button> :
                     <Button id="button-class" onClick={submitNote}>
-                        <FormattedMessage id="addNewItem.submitButton" />
+                        <FormattedMessage id="editItem.submitButton" />
                     </Button>
                 }
                 <Button id="button-class" onClick={() => history.push('/')}>

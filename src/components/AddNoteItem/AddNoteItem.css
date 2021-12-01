@@ -1,0 +1,20 @@
+.add-note-item {
+    height: 271px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 3px dotted #808080;
+    background-color: rgb(233, 229, 229);
+    margin: 0 12px 12px;
+}
+
+.add-note-item:hover {
+    cursor: pointer;
+}
+
+.add-note-item-plus-icon {
+    height: 128px;
+    width: 128px;
+    background-image: url("../../images/plus-5-128.png");
+}

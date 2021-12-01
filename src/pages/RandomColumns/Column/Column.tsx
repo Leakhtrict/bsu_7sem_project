@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 
+import './Column.css';
+
 interface IColumn {
     color: string;
     height: number;
