@@ -5,6 +5,6 @@
     flex-direction: column;
 }
 
-#button-class {
+.notes-list #button-class {
     width: 91%;
 }
