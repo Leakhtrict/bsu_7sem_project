@@ -35,9 +35,9 @@ export const RandomColumns: FC = () => {
 
     return (
         <div className="random-columns">
-            <ButtonGroup style={{ marginTop: 10 }}>
+            <ButtonGroup className="random-columns__options">
                 {isAddDisabled ?
-                    <Button disabled style={{ backgroundColor: 'darkgray', color: 'white' }}>
+                    <Button id="disabled-button" disabled>
                         {numberOfClicks} <FormattedMessage id="forFun.clicks" />
                     </Button> :
                     <Button id="columns-button-class" onClick={onAddClick}>
@@ -47,7 +47,7 @@ export const RandomColumns: FC = () => {
                 <Button id="columns-button-class" onClick={onResetClick}>
                     <FormattedMessage id="forFun.reset" />
                 </Button>
-                <Button id="columns-button-class" onClick={() => history.push("/")}>
+                <Button id="columns-button-class" onClick={() => history.push('/')}>
                     <FormattedMessage id="forFun.goHome" />
                 </Button>
             </ButtonGroup>

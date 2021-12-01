@@ -27,7 +27,7 @@ export const NoteItem: FC<INoteItem> = ({ index, note }) => {
         <div key={uuid} className="note">
             {isFavorite && <div className="favorite-star" />}
             {isMenuOpened &&
-                <ButtonGroup style={{ height: 24, marginBottom: 8 }}>
+                <ButtonGroup className="note__options">
                     <FormattedMessage id={isFavorite ? "noteItem.removeFromFavorite" : "noteItem.addToFavorite"}>
                         {(id) =>
                             <IconButton title={String(id[0])} onClick={() => {
@@ -57,9 +57,9 @@ export const NoteItem: FC<INoteItem> = ({ index, note }) => {
                     </FormattedMessage>
                 </ButtonGroup>
             }
-            <div style={{ display: "flex", alignItems: "center", borderTop: isMenuOpened ? '1px solid black' : 'none' }}>
-                <b style={{ marginLeft: 12, padding: '4px 0' }}>{title}</b>
-                <div style={{ marginLeft: "auto" }}>
+            <div className="note__title" style={{ borderTop: isMenuOpened ? '1px solid black' : 'none' }}>
+                <b className="note__title__text">{title}</b>
+                <div className="note__title__button">
                     <FormattedMessage id="noteItem.moreOptions">
                         {(id) =>
                             <IconButton

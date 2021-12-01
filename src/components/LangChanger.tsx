@@ -21,7 +21,6 @@ export const LangChanger: FC<ILangChanger> = ({
                     localStorage.setItem("bsu_project.lang", newValue);
                     setCurrentLang(newValue);
                 }}
-                style={{ marginBottom: "8px" }}
             >
                 <MenuItem value="en">
                     English
