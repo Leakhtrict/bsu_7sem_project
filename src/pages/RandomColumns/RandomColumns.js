@@ -34,7 +34,7 @@ export const RandomColumns = () => {
     };
 
     return (
-        <div className="random-columns" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div className="random-columns">
             <ButtonGroup style={{ marginTop: 10 }}>
                 {isAddDisabled ?
                     <Button disabled style={{ backgroundColor: 'darkgray', color: 'white' }}>
