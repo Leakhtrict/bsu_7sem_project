@@ -3,13 +3,8 @@ import { useDispatch } from 'react-redux';
 import ReactMarkdown from 'react-markdown';
 import { useHistory } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import StarIcon from '@material-ui/icons/Star';
-import EditIcon from '@material-ui/icons/Edit';
-import CloseIcon from '@material-ui/icons/Close';
-import DeleteIcon from '@material-ui/icons/Delete';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { ButtonGroup, IconButton } from '@material-ui/core';
+import { Star, Edit, Close, Delete, MoreVert, StarBorder } from '@material-ui/icons';
 
 import { NoteItemType } from '../types';
 import { changeFavorite, deleteNote } from '../actions';
@@ -39,14 +34,14 @@ export const NoteItem: FC<INoteItem> = ({ index, note }) => {
                                 setIsMenuOpened(false);
                                 dispatch(changeFavorite(index));
                             }}>
-                                {isFavorite ? <StarIcon /> : <StarBorderIcon />}
+                                {isFavorite ? <Star /> : <StarBorder />}
                             </IconButton>
                         }
                     </FormattedMessage>
                     <FormattedMessage id="noteItem.editItem">
                         {(id) =>
                             <IconButton title={String(id[0])} onClick={() => history.push(`/editNote/${index}`)}>
-                                <EditIcon />
+                                <Edit />
                             </IconButton>
                         }
                     </FormattedMessage>
@@ -56,7 +51,7 @@ export const NoteItem: FC<INoteItem> = ({ index, note }) => {
                                 dispatch(deleteNote(index));
                                 setIsMenuOpened(!isMenuOpened);
                             }}>
-                                <DeleteIcon />
+                                <Delete />
                             </IconButton>
                         }
                     </FormattedMessage>
@@ -72,7 +67,7 @@ export const NoteItem: FC<INoteItem> = ({ index, note }) => {
                                 title={String(id[0])}
                                 onClick={() => setIsMenuOpened(!isMenuOpened)}
                             >
-                                {isMenuOpened ? <CloseIcon /> : <MoreVertIcon />}
+                                {isMenuOpened ? <Close /> : <MoreVert />}
                             </IconButton>
                         }
                     </FormattedMessage>
