@@ -1,15 +1,17 @@
+import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { Button, Grid } from '@material-ui/core';
 
 import { getNotes } from '../selectors';
+import { NoteItemType } from '../types';
 import { AddNoteItem, NoteItem } from '../components';
 
-export const NotesList = () => {
+export const NotesList: FC = () => {
     let history = useHistory();
 
-    const notes = useSelector(getNotes);
+    const notes = useSelector(getNotes) as NoteItemType[];
 
     return (
         <div className="notes-list">
