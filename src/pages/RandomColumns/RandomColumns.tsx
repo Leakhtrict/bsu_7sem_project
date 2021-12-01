@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { Button, ButtonGroup } from '@material-ui/core';
@@ -6,7 +6,7 @@ import { Button, ButtonGroup } from '@material-ui/core';
 import { Column } from './Column';
 import { ZEROED_COLUMNS } from './START_COLUMNS';
 
-export const RandomColumns = () => {
+export const RandomColumns: FC = () => {
     let history = useHistory();
 
     const [allColumns, setAllColumns] = useState(ZEROED_COLUMNS);

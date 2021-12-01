@@ -1,4 +1,11 @@
-export const Column = ({ color, height }) => {
+import React, { FC } from 'react';
+
+interface IColumn {
+    color: string;
+    height: number;
+}
+
+export const Column: FC<IColumn> = ({ color, height }) => {
     return (
         <div className="column" style={{
             backgroundColor: color,
