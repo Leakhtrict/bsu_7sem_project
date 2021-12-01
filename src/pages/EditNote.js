@@ -33,7 +33,7 @@ export const EditNote = () => {
     const [body, setBody] = useState(noteBody);
     const [bodyError, setBodyError] = useState(false);
 
-    const [selectedTab, setSelectedTab] = useState("write");
+    const [selectedTab, setSelectedTab] = useState('write');
 
     const isButtonDisabled = title.length === 0 || title.length > 35 || bodyError;
 
@@ -61,7 +61,7 @@ export const EditNote = () => {
         if (title !== noteTitle || body !== noteBody)
             dispatch(editNote({ index, note: { ...currentNote, title, body } }));
 
-        history.push("/");
+        history.push('/');
     };
 
     return (
@@ -74,11 +74,11 @@ export const EditNote = () => {
             <FormattedMessage id="addNewItem.titleLabel">
                 {(id) =>
                     <TextField
+                        className="edit-note-page__title"
                         error={titleError}
                         value={title}
                         placeholder={id[0]}
                         onChange={onTitleChange}
-                        style={{ width: "70vw", maxWidth: 700, margin: '12px 0' }}
                     />
                 }
             </FormattedMessage>
@@ -87,7 +87,7 @@ export const EditNote = () => {
                     <FormattedMessage id="addNewItem.bodyError" />
                 </p>
             }
-            <div style={{ width: "90vw", maxWidth: 800, margin: '12px 0' }}>
+            <div className="edit-note-page__body">
                 <ReactMde
                     value={body}
                     onChange={onBodyChange}
@@ -105,7 +105,7 @@ export const EditNote = () => {
             </div>
             <div>
                 {isButtonDisabled ?
-                    <Button onClick={submitNote} disabled style={{ margin: 4, backgroundColor: 'darkgray', color: 'white' }}>
+                    <Button id="disabled-button" disabled>
                         <FormattedMessage id="editItem.submitButton" />
                     </Button> :
                     <Button id="button-class" onClick={submitNote}>

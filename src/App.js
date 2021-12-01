@@ -18,14 +18,14 @@ import { getNotesFromLocalStorage } from './actions';
 import './App.css';
 
 const langSet = {
-    "en": enMessages,
-    "ru": ruMessages
+    'en': enMessages,
+    'ru': ruMessages
 }
 
 function App() {
     const dispatch = useDispatch();
 
-    const [currentLang, setCurrentLang] = useState(localStorage.getItem("bsu_project.lang") || "en");
+    const [currentLang, setCurrentLang] = useState(localStorage.getItem('bsu_project.lang') || 'en');
 
     useEffect(() => {
         dispatch(getNotesFromLocalStorage());

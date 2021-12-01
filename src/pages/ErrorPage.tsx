@@ -12,7 +12,7 @@ export const ErrorPage: FC = () => {
         <h4>
             <FormattedMessage id="errorPage.bodyMessage">
                 {(id) =>
-                    <div className="error-page" onClick={() => history.push("/")}>{id}</div>
+                    <div className="error-page" onClick={() => history.push('/')}>{id}</div>
                 }
             </FormattedMessage>
         </h4>

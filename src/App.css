@@ -22,7 +22,7 @@ body{
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: auto;
+    margin: auto 0 8px;
 }
 
 .notes-list {
@@ -30,6 +30,10 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.notes-list #button-class {
+    width: 91%;
 }
 
 .note {
@@ -53,6 +57,25 @@ body{
     background-image: url("images/star-24.png");
 }
 
+.note__options {
+    height: 24px;
+    margin-bottom: 8px;
+}
+
+.note__title {
+    display: flex;
+    align-items: center;
+}
+
+.note__title__text {
+    margin-left: 12px;
+    padding: 4px 0;
+}
+
+.note__title__button {
+    margin-left: auto;
+}
+
 .note__body {
     text-align: start;
     max-height: 216px;
@@ -68,14 +91,25 @@ body{
     color: red;
 }
 
-#button-class, #columns-button-class {
+#button-class {
     margin: 4px;
     background-color: coral;
     color: white;
 }
 
-#columns-button-class {
+#disabled-button {
+    margin: 4px;
+    background-color: darkgray;
+    color: white;
+}
+
+.random-columns__options #disabled-button {
     margin: 0;
+}
+
+#columns-button-class {
+    background-color: coral;
+    color: white;
 }
 
 #button-class:hover, #columns-button-class:hover {
@@ -103,6 +137,18 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.add-new-note-page__title, .edit-note-page__title {
+    width: 70vw;
+    max-width: 700px;
+    margin: 12px 0 !important;
+}
+
+.add-new-note-page__body, .edit-note-page__body {
+    width: 90vw;
+    max-width: 800px;
+    margin: 12px 0;
 }
 
 .add-note-item-plus-icon {
@@ -197,4 +243,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.random-columns__options {
+    margin-top: 8px;
 }

@@ -22,13 +22,13 @@ export const AddNewNote = () => {
     let history = useHistory();
     const dispatch = useDispatch();
 
-    const [title, setTitle] = useState("");
+    const [title, setTitle] = useState('');
     const [titleError, setTitleError] = useState(false);
 
-    const [body, setBody] = useState("");
+    const [body, setBody] = useState('');
     const [bodyError, setBodyError] = useState(false);
 
-    const [selectedTab, setSelectedTab] = useState("write");
+    const [selectedTab, setSelectedTab] = useState('write');
 
     const isButtonDisabled = title.length === 0 || title.length > 35 || bodyError;
 
@@ -59,7 +59,7 @@ export const AddNewNote = () => {
             body,
             isFavorite: false
         }));
-        history.push("/");
+        history.push('/');
     };
 
     return (
@@ -72,11 +72,11 @@ export const AddNewNote = () => {
             <FormattedMessage id="addNewItem.titleLabel">
                 {(id) =>
                     <TextField
+                        className="add-new-note-page__title"
                         error={titleError}
                         value={title}
                         placeholder={id[0]}
                         onChange={onTitleChange}
-                        style={{ width: "70vw", maxWidth: 700, margin: '12px 0' }}
                     />
                 }
             </FormattedMessage>
@@ -85,7 +85,7 @@ export const AddNewNote = () => {
                     <FormattedMessage id="addNewItem.bodyError" />
                 </p>
             }
-            <div style={{ width: "90vw", maxWidth: 800, margin: '12px 0' }}>
+            <div className="add-new-note-page__body">
                 <ReactMde
                     value={body}
                     onChange={onBodyChange}
@@ -103,7 +103,7 @@ export const AddNewNote = () => {
             </div>
             <div>
                 {isButtonDisabled ?
-                    <Button disabled style={{ margin: 4, backgroundColor: 'darkgray', color: 'white' }}>
+                    <Button id="disabled-button" disabled>
                         <FormattedMessage id="addNewItem.submitButton" />
                     </Button> :
                     <Button id="button-class" onClick={submitNote}>

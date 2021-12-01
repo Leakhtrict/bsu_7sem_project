@@ -6,7 +6,7 @@ export const getNotesFromLocalStorage = createAsyncThunk(
     '@notes/getNotesFromLocalStorage',
     (_, { rejectWithValue }) => {
         try {
-            return localStorage.getItem("bsu_project.notes") || '[]';
+            return localStorage.getItem('bsu_project.notes') || '[]';
         } catch (error) {
             return rejectWithValue(error);
         }
@@ -20,7 +20,7 @@ export const addNote = createAsyncThunk(
             const { title, body } = note;
 
             if (title.length > 35 || title.length === 0 || (body && body.length > 400)) {
-                return rejectWithValue({ error: "Max. title length - 35, body - 400" });
+                return rejectWithValue({ error: 'Max. title length - 35, body - 400' });
             }
 
             return note;
@@ -42,7 +42,7 @@ export const editNote = createAsyncThunk(
             const { title, body } = note;
 
             if (title.length > 35 || title.length === 0 || (body && body.length > 400)) {
-                return rejectWithValue({error: "Max. title length - 35, body - 400"});
+                return rejectWithValue({ error: 'Max. title length - 35, body - 400' });
             }
 
             return { index, note };
