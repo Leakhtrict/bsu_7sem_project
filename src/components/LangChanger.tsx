@@ -1,6 +1,12 @@
+import React, { FC } from 'react';
 import { MenuItem, Select } from '@material-ui/core';
 
-export const LangChanger = ({
+interface ILangChanger {
+    currentLang: string;
+    setCurrentLang: (value: string) => void;
+}
+
+export const LangChanger: FC<ILangChanger> = ({
     currentLang,
     setCurrentLang
 }) => {
@@ -10,8 +16,10 @@ export const LangChanger = ({
             <Select
                 value={currentLang}
                 onChange={(e) => {
-                    localStorage.setItem("bsu_project.lang", e.target.value);
-                    setCurrentLang(e.target.value);
+                    const newValue = String(e.target.value);
+
+                    localStorage.setItem("bsu_project.lang", newValue);
+                    setCurrentLang(newValue);
                 }}
                 style={{ marginBottom: "8px" }}
             >

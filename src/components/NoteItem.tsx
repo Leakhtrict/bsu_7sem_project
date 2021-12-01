@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import ReactMarkdown from 'react-markdown';
 import { useHistory } from 'react-router-dom';
@@ -11,9 +11,15 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { ButtonGroup, IconButton } from '@material-ui/core';
 
+import { NoteItemType } from '../types';
 import { changeFavorite, deleteNote } from '../actions';
 
-export const NoteItem = ({ index, note }) => {
+interface INoteItem {
+    index: number;
+    note: NoteItemType;
+}
+
+export const NoteItem: FC<INoteItem> = ({ index, note }) => {
     let history = useHistory();
 
     const dispatch = useDispatch();
@@ -29,7 +35,7 @@ export const NoteItem = ({ index, note }) => {
                 <ButtonGroup style={{ height: 24, marginBottom: 8 }}>
                     <FormattedMessage id={isFavorite ? "noteItem.removeFromFavorite" : "noteItem.addToFavorite"}>
                         {(id) =>
-                            <IconButton title={id} onClick={() => {
+                            <IconButton title={String(id[0])} onClick={() => {
                                 setIsMenuOpened(false);
                                 dispatch(changeFavorite(index));
                             }}>
@@ -39,14 +45,14 @@ export const NoteItem = ({ index, note }) => {
                     </FormattedMessage>
                     <FormattedMessage id="noteItem.editItem">
                         {(id) =>
-                            <IconButton title={id} onClick={() => history.push(`/editNote/${index}`)}>
+                            <IconButton title={String(id[0])} onClick={() => history.push(`/editNote/${index}`)}>
                                 <EditIcon />
                             </IconButton>
                         }
                     </FormattedMessage>
                     <FormattedMessage id="noteItem.deleteItem">
                         {(id) =>
-                            <IconButton title={id} onClick={() => {
+                            <IconButton title={String(id[0])} onClick={() => {
                                 dispatch(deleteNote(index));
                                 setIsMenuOpened(!isMenuOpened);
                             }}>
@@ -61,7 +67,11 @@ export const NoteItem = ({ index, note }) => {
                 <div style={{ marginLeft: "auto" }}>
                     <FormattedMessage id="noteItem.moreOptions">
                         {(id) =>
-                            <IconButton size="small" title={id} onClick={() => setIsMenuOpened(!isMenuOpened)} >
+                            <IconButton
+                                size="small"
+                                title={String(id[0])}
+                                onClick={() => setIsMenuOpened(!isMenuOpened)}
+                            >
                                 {isMenuOpened ? <CloseIcon /> : <MoreVertIcon />}
                             </IconButton>
                         }
