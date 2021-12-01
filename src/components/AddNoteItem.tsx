@@ -1,6 +1,7 @@
+import React, { FC } from 'react';
 import { useHistory } from 'react-router-dom';
 
-export const AddNoteItem = () => {
+export const AddNoteItem: FC = () => {
     let history = useHistory();
 
     return (
