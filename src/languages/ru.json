@@ -14,6 +14,7 @@
     "errorPage.titleMessage": "Упс... Что-то пошло не так",
     "errorPage.bodyMessage": "Попробуйте перейти сюда ",
     "forFun.clicks": "клик(а/ов)",
+    "forFun.clickHere": "Жми сюда",
     "forFun.reset": "Сбросить",
     "forFun.goHome": "На главную"
 }
