@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import { IntlProvider } from 'react-intl';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -10,20 +9,16 @@ import {
     NotesList,
     RandomColumns
 } from './pages';
+import { langSet } from './constants';
+import { useAppDispatch } from './store';
 import { LangChanger } from './components';
-import enMessages from './languages/en.json';
-import ruMessages from './languages/ru.json';
 import { getNotesFromLocalStorage } from './actions';
 
 import './App.css';
 
-const langSet = {
-    'en': enMessages,
-    'ru': ruMessages
-}
 
-function App() {
-    const dispatch = useDispatch();
+export const App = () => {
+    const dispatch = useAppDispatch();
 
     const [currentLang, setCurrentLang] = useState(localStorage.getItem('bsu_project.lang') || 'en');
 
@@ -48,5 +43,3 @@ function App() {
         </div>
     );
 }
-
-export default App;

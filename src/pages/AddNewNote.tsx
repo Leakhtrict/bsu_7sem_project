@@ -1,13 +1,14 @@
-import { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import ReactMde from 'react-mde';
 import * as Showdown from 'showdown';
-import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { Button, TextField } from '@material-ui/core';
 import { generateUniqueID } from 'web-vitals/dist/modules/lib/generateUniqueID';
 
 import { addNote } from '../actions';
+import { useAppDispatch } from '../store';
+import { MarkdownOptions } from '../types';
 
 import 'react-mde/lib/styles/css/react-mde-all.css';
 
@@ -20,7 +21,7 @@ const converter = new Showdown.Converter({
 
 export const AddNewNote = () => {
     let history = useHistory();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const [title, setTitle] = useState('');
     const [titleError, setTitleError] = useState(false);
@@ -28,11 +29,11 @@ export const AddNewNote = () => {
     const [body, setBody] = useState('');
     const [bodyError, setBodyError] = useState(false);
 
-    const [selectedTab, setSelectedTab] = useState('write');
+    const [selectedTab, setSelectedTab] = useState<MarkdownOptions>('write');
 
     const isButtonDisabled = title.length === 0 || title.length > 35 || bodyError;
 
-    const onTitleChange = (event) => {
+    const onTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const newTitle = event.target.value;
 
         if (newTitle.length === 0 || newTitle.length > 35)
@@ -40,10 +41,10 @@ export const AddNewNote = () => {
         else
             setTitleError(false);
 
-        setTitle(event.target.value)
+        setTitle(newTitle);
     };
 
-    const onBodyChange = (value) => {
+    const onBodyChange = (value: string) => {
         if (value.length > 400)
             setBodyError(true);
         else
@@ -52,8 +53,8 @@ export const AddNewNote = () => {
         setBody(value);
     }
 
-    const submitNote = () => {
-        dispatch(addNote({
+    const submitNote = async () => {
+        await dispatch(addNote({
             uuid: generateUniqueID(),
             title,
             body,
@@ -75,7 +76,7 @@ export const AddNewNote = () => {
                         className="add-new-note-page__title"
                         error={titleError}
                         value={title}
-                        placeholder={id[0]}
+                        placeholder={String(id[0])}
                         onChange={onTitleChange}
                     />
                 }
