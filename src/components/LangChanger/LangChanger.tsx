@@ -20,7 +20,7 @@ export const LangChanger: FC<ILangChanger> = ({
                 onChange={(e) => {
                     const newValue = String(e.target.value);
 
-                    localStorage.setItem("bsu_project.lang", newValue);
+                    localStorage.setItem('notexx_alpha.lang', newValue);
                     setCurrentLang(newValue);
                 }}
             >

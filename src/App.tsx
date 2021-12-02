@@ -20,7 +20,7 @@ import './App.css';
 export const App: FC = () => {
     const dispatch = useAppDispatch();
 
-    const [currentLang, setCurrentLang] = useState(localStorage.getItem('bsu_project.lang') || 'en');
+    const [currentLang, setCurrentLang] = useState(localStorage.getItem('notexx_alpha.lang') || 'en');
 
     useEffect(() => {
         dispatch(getNotesFromLocalStorage());
