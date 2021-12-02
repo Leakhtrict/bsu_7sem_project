@@ -1,7 +1,7 @@
 # INFO
 
-A simple app for taking notes(with markdown support) with some standart options.
+A simple app for taking notes(with markdown support) with some standard options.
 
 ## Deployment Site
 
-https://bsu-7sem-genis-project.netlify.app/
+<a href="https://notexx-alpha.netlify.app/" target="_blank">NoteXX Alpha</a>

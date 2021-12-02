@@ -6,7 +6,7 @@ export const getNotesFromLocalStorage = createAsyncThunk(
     '@notes/getNotesFromLocalStorage',
     (_, { rejectWithValue }) => {
         try {
-            return localStorage.getItem('bsu_project.notes') || '[]';
+            return localStorage.getItem('notexx_alpha.notes') || '[]';
         } catch (error) {
             return rejectWithValue(error);
         }
