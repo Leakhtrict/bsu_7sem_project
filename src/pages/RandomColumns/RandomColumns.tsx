@@ -3,8 +3,9 @@ import { useHistory } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { Button, ButtonGroup } from '@material-ui/core';
 
+import { ZEROED_COLUMNS } from 'constants/START_COLUMNS';
+
 import { Column } from './Column';
-import { ZEROED_COLUMNS } from './START_COLUMNS';
 
 import './RandomColumns.css';
 

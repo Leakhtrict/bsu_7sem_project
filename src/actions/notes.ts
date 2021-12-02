@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { NotesItem } from '../types';
+import { NotesItem } from 'types';
 
 export const getNotesFromLocalStorage = createAsyncThunk(
     '@notes/getNotesFromLocalStorage',

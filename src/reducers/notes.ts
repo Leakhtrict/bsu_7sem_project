@@ -6,8 +6,8 @@ import {
     deleteNote,
     editNote,
     getNotesFromLocalStorage
-} from '../actions';
-import { NotesItem } from '../types';
+} from 'actions';
+import { NotesItem } from 'types';
 
 const defaultState: NotesItem[] = [];
 
