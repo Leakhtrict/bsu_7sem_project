@@ -4,8 +4,8 @@ import { useHistory } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { Button, Grid } from '@material-ui/core';
 
-import { getNotes } from '../../selectors';
-import { AddNoteItem, NoteItem } from '../../components';
+import { getNotes } from 'selectors';
+import { AddNoteItem, NoteItem } from 'components';
 
 import './NotesList.css';
 

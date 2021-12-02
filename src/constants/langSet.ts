@@ -1,7 +1,7 @@
-import enMessages from '../languages/en.json';
-import ruMessages from '../languages/ru.json';
+import enMessages from 'languages/en.json';
+import ruMessages from 'languages/ru.json';
 
-export const langSet: Record<string, Record<string, string>> = {
+export const LANG_SET: Record<string, Record<string, string>> = {
     'en': enMessages,
     'ru': ruMessages,
 };

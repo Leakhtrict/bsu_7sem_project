@@ -8,11 +8,11 @@ import {
     EditNote,
     NotesList,
     RandomColumns
-} from './pages';
-import { langSet } from './constants';
-import { useAppDispatch } from './store';
-import { LangChanger } from './components';
-import { getNotesFromLocalStorage } from './actions';
+} from 'pages';
+import { useAppDispatch } from 'store';
+import { LangChanger } from 'components';
+import { LANG_SET } from 'constants/langSet';
+import { getNotesFromLocalStorage } from 'actions';
 
 import './App.css';
 
@@ -28,7 +28,7 @@ export const App: FC = () => {
 
     return (
         <div className="App">
-            <IntlProvider locale={currentLang} messages={langSet[currentLang]}>
+            <IntlProvider locale={currentLang} messages={LANG_SET[currentLang]}>
                 <Router>
                     <Switch>
                         <Route path="/" exact component={NotesList} />

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { FormattedMessage } from 'react-intl';
 import { useHistory } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 import './ErrorPage.css';
 

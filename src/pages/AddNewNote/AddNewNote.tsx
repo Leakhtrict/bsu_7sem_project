@@ -6,9 +6,9 @@ import { FormattedMessage } from 'react-intl';
 import { Button, TextField } from '@material-ui/core';
 import { generateUniqueID } from 'web-vitals/dist/modules/lib/generateUniqueID';
 
-import { addNote } from '../../actions';
-import { useAppDispatch } from '../../store';
-import { MarkdownOptions } from '../../types';
+import { addNote } from 'actions';
+import { useAppDispatch } from 'store';
+import { MarkdownOptions } from 'types';
 
 import './AddNewNote.css';
 import 'react-mde/lib/styles/css/react-mde-all.css';

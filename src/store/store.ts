@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { Action, configureStore, ThunkDispatch } from '@reduxjs/toolkit';
 
-import { notesReducer } from '../reducers';
+import { notesReducer } from 'reducers';
 
 export const store = configureStore({
     reducer: {

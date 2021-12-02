@@ -6,10 +6,10 @@ import { FormattedMessage } from 'react-intl';
 import { Button, TextField } from '@material-ui/core';
 import { useHistory, useParams } from 'react-router-dom';
 
-import { editNote } from '../../actions';
-import { useAppDispatch } from '../../store';
-import { MarkdownOptions } from '../../types';
-import { getNoteByIndex } from '../../selectors';
+import { editNote } from 'actions';
+import { useAppDispatch } from 'store';
+import { MarkdownOptions } from 'types';
+import { getNoteByIndex } from 'selectors';
 
 import './EditNote.css';
 import 'react-mde/lib/styles/css/react-mde-all.css';

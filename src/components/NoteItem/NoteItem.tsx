@@ -5,9 +5,9 @@ import { FormattedMessage } from 'react-intl';
 import { ButtonGroup, IconButton } from '@material-ui/core';
 import { Star, Edit, Close, Delete, MoreVert, StarBorder } from '@material-ui/icons';
 
-import { NotesItem } from '../../types';
-import { useAppDispatch } from '../../store';
-import { changeFavorite, deleteNote } from '../../actions';
+import { NotesItem } from 'types';
+import { useAppDispatch } from 'store';
+import { changeFavorite, deleteNote } from 'actions';
 
 import './NoteItem.css';
 
