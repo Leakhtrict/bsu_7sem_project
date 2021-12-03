@@ -8,9 +8,14 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    font-family: "Arial", "Helvetica", sans-serif;
+    font-family: "Lato", "Arial", sans-serif;
     font-size: 16px;
     background-image: url("images/background.jpg");
+}
+
+.MuiButton-root {
+    font-family: "Lato", "Arial", sans-serif !important;
+    font-size: 16px !important;
 }
 
 body{

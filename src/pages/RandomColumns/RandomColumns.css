@@ -1,8 +1,8 @@
 .all-columns {
     height: 70vh;
     width: 70vw;
-    margin: 7% 0 3%;
     display: flex;
+    margin-top: 7%;
     align-items: flex-end;
 }
 

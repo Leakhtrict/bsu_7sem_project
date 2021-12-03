@@ -1,6 +1,6 @@
 .note {
     height: auto;
-    max-height: 300px;
+    max-height: 310px;
     background-color: rgb(249, 235, 118);
     word-break: break-word;
     margin: 12px;
@@ -40,7 +40,7 @@
 
 .note__body {
     text-align: start;
-    max-height: 216px;
+    max-height: 192px;
     overflow-y: auto;
     margin: 0 8px 14px;
     border-top: 1px solid black;
