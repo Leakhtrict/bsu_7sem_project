@@ -40,6 +40,15 @@ export const EditNote: FC = () => {
 
     const isButtonDisabled = title.length === 0 || title.length > 35 || bodyError;
 
+    const onBodyChange = (value: string) => {
+        if (value.length > 400)
+            setBodyError(true);
+        else
+            setBodyError(false);
+
+        setBody(value);
+    }
+
     const onTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const newTitle = event.target.value;
 
@@ -50,15 +59,6 @@ export const EditNote: FC = () => {
 
         setTitle(newTitle);
     };
-
-    const onBodyChange = (value: string) => {
-        if (value.length > 400)
-            setBodyError(true);
-        else
-            setBodyError(false);
-
-        setBody(value);
-    }
 
     const submitNote = async () => {
         if (title !== noteTitle || body !== noteBody)
@@ -121,4 +121,4 @@ export const EditNote: FC = () => {
             </div>
         </div>
     );
-}
+};

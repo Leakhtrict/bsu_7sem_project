@@ -75,7 +75,6 @@ export const NoteItem: FC<INoteItem> = ({ index, note }) => {
                     </FormattedMessage>
                 </div>
             </div>
-
             {body &&
                 <div className="note__body">
                     <ReactMarkdown>{body}</ReactMarkdown>

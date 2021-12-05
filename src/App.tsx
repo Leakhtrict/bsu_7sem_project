@@ -42,4 +42,4 @@ export const App: FC = () => {
             </IntlProvider>
         </div>
     );
-}
+};

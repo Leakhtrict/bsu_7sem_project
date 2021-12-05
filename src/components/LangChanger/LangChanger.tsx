@@ -8,29 +8,23 @@ interface ILangChanger {
     setCurrentLang: (value: string) => void;
 }
 
-export const LangChanger: FC<ILangChanger> = ({
-    currentLang,
-    setCurrentLang
-}) => {
+export const LangChanger: FC<ILangChanger> = ({ currentLang, setCurrentLang }) => (
+    <div className="langChanger">
+        <Select
+            value={currentLang}
+            onChange={(e) => {
+                const newValue = String(e.target.value);
 
-    return (
-        <div className="langChanger">
-            <Select
-                value={currentLang}
-                onChange={(e) => {
-                    const newValue = String(e.target.value);
-
-                    localStorage.setItem('notexx_alpha.lang', newValue);
-                    setCurrentLang(newValue);
-                }}
-            >
-                <MenuItem value="en">
-                    English
-                </MenuItem>
-                <MenuItem value="ru">
-                    Русский
-                </MenuItem>
-            </Select>
-        </div>
-    )
-}
+                localStorage.setItem('notexx_alpha.lang', newValue);
+                setCurrentLang(newValue);
+            }}
+        >
+            <MenuItem value="en">
+                English
+            </MenuItem>
+            <MenuItem value="ru">
+                Русский
+            </MenuItem>
+        </Select>
+    </div>
+);
